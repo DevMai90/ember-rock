@@ -1,10 +1,24 @@
 'use strict';
 
+/**
+ * This is where most build related things live
+ */
+
+// Broccoli is responsible for bundling assets.
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
+
+    /**
+     * Tell PostCss to use Tailwind as a plugin
+     */
+    postcssOptions: {
+      compile: {
+        plugins: [{ module: require('tailwindcss') }],
+      },
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated

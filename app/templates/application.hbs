@@ -1,3 +1,4 @@
+{{!-- Router always enters the application route first --}}
 {{!-- page-title helper - Sets document title --}}
 {{page-title "Rock & Roll with Octane"}}
 
@@ -11,21 +12,12 @@
       </a>
     </div>
 
-    <ul>
-      {{!-- each helper - loops through elements as 'song' --}}
-      {{!-- array helper - Creates an array with arguments passed in --}}
-      {{!-- hash helper - Creates a POJO --}}
-      {{#each
-        (array
-          (hash title="Black Dog" band="Led Zeppelin" rating=3)
-          (hash title="Yellow Ledbetter" band="Pearl Jam" rating=4)
-          (hash title="The Pretender" band="Foot Fighters" rating=2)
-        ) as |song|
-      }}
-        <li class="leading-loose">
-          {{song.title}} by {{song.band}} <span class="float-right">{{song.rating}}</span>
-        </li>
-      {{/each}}
-    </ul>
+    <nav class="h-8 flex items-center mb-8" role="navigation">
+      {{!-- Must pass in actual route name (not route path name) to @route --}}
+      <LinkTo class="hover:text-gray-500" @route="bands">Bands</LinkTo>
+      <LinkTo class="hover:text-gray-500 ml-4" @route="songs">Songs</LinkTo>
+    </nav>
+    {{!-- Renders child route content --}}
+    {{outlet}}
   </div>
 </div>

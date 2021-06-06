@@ -3,8 +3,18 @@
   <ul>
     {{#each @model as |song|}}
       <li class="mb-2">
-        {{song.title}}
-        <span class="float-right">{{song.rating}}</span>
+          {{song.title}}
+        <span class="float-right">
+          <StarRating
+            @rating={{song.rating}}
+            @onUpdate={{set song "rating"}}
+          />
+          {{!-- <StarRating @rating={{song.rating}} as |stars|>
+            {{#each stars as |star|}}
+              <span class="glyphicon {{if star.isFull 'glyphicon-star' 'glyhpicon-star-empty'}}"></span>
+            {{/each}}
+          </StarRating> --}}
+        </span>
       </li>
     {{/each}}
   </ul>

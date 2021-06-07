@@ -1,9 +1,23 @@
 import Route from '@ember/routing/route';
 
 export default class BandsBandSongsRoute extends Route {
-  model() {
-    const band = this.modelFor('bands.band');
+  /**
+   * The default implementation of the model hook is to RETURN THE MODEL OF THE PARENT ROUTE.
+   * Therefore, we do not need to use the model hook if this is all is needed!
+   */
 
-    return band.songs;
+  // model() {
+  //   const band = this.modelFor('bands.band');
+
+  //   return band.songs;
+  // }
+
+  // setupController(controller) {
+  //   super.setupController(...arguments);
+  //   controller.set('band', this.modelFor('bands.band'));
+  // }
+  resetController(controller) {
+    controller.title = '';
+    controller.showAddSong = true;
   }
 }

@@ -11,5 +11,6 @@ Router.map(function () {
     this.route('band', { path: ':id' }, function () {
       this.route('songs'); // We've created /bands/:id/songs
     });
+    this.route('new');
   });
 });

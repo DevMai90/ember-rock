@@ -10,6 +10,6 @@ export default class BandsBandRoute extends Route {
     // return bands.find((band) => band.id === params.id);
 
     // Use new catalog service instead of reaching into parent model.
-    return this.catalog.find('bands', (band) => band.id === params.id);
+    return this.catalog.find('band', (band) => band.id === params.id);
   }
 }

@@ -70,7 +70,8 @@ export default class CatalogService extends Service {
   }
 
   async fetchRelated(record, relationship) {
-    let url = record.relationships[relationship]; let response = await fetch(url);
+    let url = record.relationships[relationship];
+    let response = await fetch(url);
     let json = await response.json();
 
     if (isArray(json.data)) {
@@ -82,7 +83,7 @@ export default class CatalogService extends Service {
     return record[relationship];
   }
 
-  async create(type, attribute, relationships ={}) {
+  async create(type, attributes, relationships ={}) {
     let payload = {
       data: {
         type: type === 'band' ? 'bands' : 'songs',
